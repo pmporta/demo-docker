@@ -37,4 +37,5 @@ buildNumber.properties
 HELP.md
 mvnw
 mvnw.cmd
-
+.classpath
+.settings/*
