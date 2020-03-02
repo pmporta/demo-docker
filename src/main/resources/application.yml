@@ -6,26 +6,19 @@ spring:
    datasource:
       driver-class-name: org.postgresql.Driver
       url: jdbc:postgresql://localhost:5432/demodocker
-      user: demo
+      username: demo
       password: demo
    jpa:
       properties:
          hibernate:
             show-sql: true
             dialect: org.hibernate.dialect.PostgreSQLDialect
+            hbm2ddl:
+               delimiter: ";" 
          javax:
             persistence:
                schema-generation:
-                  scripts: create-target=create.sql
-# ----------------
-# Orphan comments:
-# ----------------
-# Was at begin of line:16 :# jpa:
-# Was at begin of line:17 :#   properties:
-# Was at begin of line:18 :#     javax:
-# Was at begin of line:19 :#      persistence:
-# Was at begin of line:20 :#       schema-generation:
-# Was at begin of line:21 :#            create-source: metadata
-# Was at begin of line:22 :#           scripts:
-# Was at begin of line:23 :#            action: create
-# Was at begin of line:24 :#           create-target: create.sql
+                  create-source: metadata
+                  scripts:
+                     action: create
+                     create-target: create.sql

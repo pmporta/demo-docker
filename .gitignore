@@ -39,3 +39,4 @@ mvnw
 mvnw.cmd
 .classpath
 .settings/*
+.metadata/*

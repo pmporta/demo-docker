@@ -28,7 +28,7 @@ public class RankingPosition {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "runner_id")
-	private Runner runner;
+	private MountainRunner runner;
 	
 	private Integer position;
 }

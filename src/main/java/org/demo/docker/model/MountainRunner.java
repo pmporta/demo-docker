@@ -16,8 +16,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "runner")
-public class Runner {
+@Table(name = "mountainrunner")
+public class MountainRunner {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
