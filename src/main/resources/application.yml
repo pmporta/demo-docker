@@ -14,11 +14,16 @@ spring:
             show-sql: true
             dialect: org.hibernate.dialect.PostgreSQLDialect
             hbm2ddl:
-               delimiter: ";" 
+               delimiter: ";"
          javax:
             persistence:
                schema-generation:
                   create-source: metadata
+                  #create-source: script
+                  #create-script-source: /create.sql
+                  #drop-source: script
+                  #drop-script-source: drop.sql
                   scripts:
-                     action: create
+                     #action: drop-and-create
+                     action: update
                      create-target: create.sql

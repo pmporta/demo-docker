@@ -1,5 +1,6 @@
 package org.demo.docker.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -17,18 +18,24 @@ import lombok.Setter;
 @Entity
 @Table(name = "ranking")
 public class RankingPosition {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "race_id")
+	@JoinColumn(name = "race", insertable = false, updatable = false)
 	private Race race;
-	
+
+	@Column(name = "race")
+	private Long raceId;
+
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "runner_id")
-	private MountainRunner runner;
-	
+	@JoinColumn(name = "athlete", updatable = false, insertable = false)
+	private Athlete athlete;
+
+	@Column(name = "athlete")
+	private Long athleteId;
+
 	private Integer position;
 }

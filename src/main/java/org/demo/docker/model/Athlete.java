@@ -2,7 +2,6 @@ package org.demo.docker.model;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,30 +15,28 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
 @Getter
 @Setter
-@Table(name = "race")
-public class Race {
-
+@Entity
+@Table(name = "athlete")
+public class Athlete {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-
+	private Long id; 
+	
 	private String name;
-
+	
+	private String age;
+	
+	@OneToMany (mappedBy = "runner")
+	private List<RankingPosition> ranking;
+	
 	@OneToOne
 	@JoinColumn(name = "country", insertable = false, updatable = false)
 	private Country country;
-
-	@Column(name="country")
+	
+	@Column(name = "country")
 	private Long countryId;
-
-	private String distance;
-
-	private String heightGain;
-
-	@OneToMany(mappedBy = "race", cascade = CascadeType.ALL)
-	private List<RankingPosition> ranking;
-
+	
 }
