@@ -25,5 +25,5 @@ spring:
                   #drop-script-source: drop.sql
                   scripts:
                      #action: drop-and-create
-                     action: update
+                     action: create
                      create-target: create.sql

@@ -5,11 +5,12 @@ import org.demo.docker.repository.CountryRepository;
 import org.demo.docker.repository.RaceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-@RestController("/races")
+@RestController
 public class RaceController {
 
 	@Autowired
@@ -18,6 +19,7 @@ public class RaceController {
 	@Autowired
 	private CountryRepository countryRepository;
 
+	@PostMapping("/races")
 	public Race insert(@RequestBody Race race) {
 
 		if (!countryRepository.existsById(race.getCountryId())) {

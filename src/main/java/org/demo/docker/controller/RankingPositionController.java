@@ -6,6 +6,7 @@ import org.demo.docker.repository.RaceRepository;
 import org.demo.docker.repository.RankingPositionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
@@ -22,6 +23,7 @@ public class RankingPositionController {
 	@Autowired
 	private AthleteRepository athleteRepository;
 
+	@PostMapping("/ranking-positions")
 	public RankingPosition insert(@RequestBody RankingPosition rankingPosition) {
 
 		if (!raceRepository.existsById(rankingPosition.getRaceId())) {

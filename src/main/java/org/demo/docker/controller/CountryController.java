@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("/countries")
+@RestController
 public class CountryController {
 
 	@Autowired
-	CountryRepository countryRepository;
+	private CountryRepository countryRepository;
 
-	@PostMapping
+	@PostMapping("/countries")
 	public Country insert(@RequestBody Country country) {
 		return countryRepository.save(country);
 	}
